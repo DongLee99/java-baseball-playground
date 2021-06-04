@@ -1,5 +1,7 @@
 package view;
 
+import util.Input;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,13 +15,10 @@ public class View {
     private View() {};
 
     public static String InputView(){
-        try {
             System.out.println(INPUT_TEXT);
-            BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-            String str = bf.readLine();
-            return str;
-        } catch (IOException e){
-            throw new IllegalArgumentException("잘못된 입력입니다.");
-        }
+            return Input.BufferInput();
+    }
+    public static void ResultView() {
+
     }
 }
