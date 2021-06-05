@@ -8,6 +8,10 @@ public class Number {
         this.value = value;
     }
 
+    public int checkContains(Number inputNumber) {
+        for
+    }
+
     private void validateNumber(String value) {
         try {
             Integer.parseInt(value);
@@ -22,4 +26,6 @@ public class Number {
             throw new IllegalArgumentException("[ERROR] 자리수가 3이 넘으면 안됨.");
         }
     }
+
+
 }
