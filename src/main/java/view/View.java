@@ -14,7 +14,12 @@ public class View {
     public static void InputView(){
         System.out.println(INPUT_TEXT);
     }
-    public static void ResultView(List<String> result) {
-
+    public static void ResultView(int strikeCount, int ballCount) {
+        if (strikeCount != 0) {
+            System.out.println(strikeCount + "스트라이크 ");
+        }
+        if (ballCount != 0) {
+            System.out.println(ballCount + "볼 ");
+        }
     }
 }

@@ -8,8 +8,12 @@ public class Number {
         this.value = value;
     }
 
-    public int checkContains(Number inputNumber) {
-        for
+    public int checkContains(Number inputNumber, int index) {
+        int count = 0;
+        if (value.contains(Character.toString(inputNumber.value.charAt(index)))) {
+            count++;
+        }
+        return count;
     }
 
     private void validateNumber(String value) {
@@ -28,4 +32,16 @@ public class Number {
     }
 
 
+    public int numberPositionCheck(Number answer,int index) {
+        int strikeCount = 0;
+        if (answer.value.charAt(index) == value.charAt(index)) {
+            strikeCount++;
+            answer.value.replace(answer.value.charAt(index), ' ');
+        }
+        return strikeCount;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }
