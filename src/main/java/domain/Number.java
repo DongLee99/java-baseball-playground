@@ -31,12 +31,10 @@ public class Number {
         }
     }
 
-
     public int numberPositionCheck(Number answer,int index) {
         int strikeCount = 0;
-        if (answer.value.charAt(index) == value.charAt(index)) {
+        if (answer.value.charAt(index) == this.value.charAt(index)) {
             strikeCount++;
-            answer.value.replace(answer.value.charAt(index), ' ');
         }
         return strikeCount;
     }

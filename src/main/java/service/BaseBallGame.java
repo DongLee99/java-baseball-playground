@@ -8,18 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BaseBallGame {
-    public final static  Number ANSWER = new Number("456");
-    private int strikeCount = 0;
-    private int ballCount = 0;
+    private Number ANSWER = new Number("456");
+    private int strikeCount;
+    private int ballCount;
     private List<String> RESULT = new ArrayList<>();
 
     public void gameStart() {
         Number inputNumber = new Number(Input.BufferInput());
         strikeCount = 0;
         ballCount = 0;
-        Number temp = ANSWER;
-        checkStrike(inputNumber, temp);
-        checkBall(inputNumber,temp);
+        checkStrike(inputNumber, ANSWER);
+        checkBall(inputNumber,ANSWER);
         View.ResultView(strikeCount, ballCount);
     }
 
@@ -33,5 +32,6 @@ public class BaseBallGame {
         for(int index = 0; index < temp.getValue().length(); index++) {
             ballCount = ballCount + inputNumber.checkContains(temp, index);
         }
+        ballCount = ballCount - strikeCount;
     }
 }
