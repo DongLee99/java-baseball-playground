@@ -11,15 +11,30 @@ public class BaseBallGame {
     private Number ANSWER = new Number("456");
     private int strikeCount;
     private int ballCount;
-    private List<String> RESULT = new ArrayList<>();
+    private boolean keepGoing = true;
 
-    public void gameStart() {
+    public void checkGameStart() {
+        while(keepGoing) {
+            gameStart();
+        }
+    }
+    private void gameStart() {
         Number inputNumber = new Number(Input.BufferInput());
         strikeCount = 0;
         ballCount = 0;
         checkStrike(inputNumber, ANSWER);
         checkBall(inputNumber,ANSWER);
         View.ResultView(strikeCount, ballCount);
+        if (strikeCount == 3) {
+            View.finishTextView();
+            checkFinish();
+        }
+    }
+
+    private void checkFinish() {
+        if (Input.BufferInput().equals("2")){
+            keepGoing = false;
+        }
     }
 
     private void checkStrike(Number inputNumber, Number temp) {
